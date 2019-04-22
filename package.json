@@ -13,7 +13,7 @@
   "typings": "types/index.d.ts",
   "scripts": {
     "build": "make rebuild",
-    "postinstall": "make rebuild",
+    "postinstall": "yarn && yarn run build",
     "docs": "docsify serve -o docs",
     "lint": "tslint -p .",
     "lint:fix": "tslint -p . --fix",
