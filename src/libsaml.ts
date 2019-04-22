@@ -15,7 +15,7 @@ import { SignedXml, FileKeyInfo } from 'xml-crypto';
 import * as xmlenc from '@passify/xml-encryption';
 import * as path from 'path';
 import * as fs from 'fs';
-import * as Validator from '@passify/xsd-schema-validator';
+import * as Validator from 'xsd-schema-validator';
 import { extract } from './extractor';
 
 const signatureAlgorithms = algorithms.signature;
@@ -366,7 +366,7 @@ const libSaml = () => {
         } else if (opts.cert) {
 
           const certificateNode = select(".//*[local-name(.)='X509Certificate']", signatureNode) as any;
-          
+
           // certificate in metadata
           let metadataCert: any = opts.cert.getX509Certificate(certUse.signing);
           if (typeof metadataCert === 'string') {
@@ -377,7 +377,7 @@ const libSaml = () => {
           }
           metadataCert = metadataCert.map(utility.normalizeCerString);
 
-          // use the first 
+          // use the first
           let selectedCert = metadataCert[0];
           // no certificate node in response
           if (certificateNode.length !== 0) {
